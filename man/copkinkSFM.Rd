@@ -61,7 +61,6 @@ library(sn)
 library(e1071)
 library(randtoolbox)
 library("signal")
-library(micEcon)
 library(numDeriv)
 library(moments)
 library("rngWELL")
@@ -70,29 +69,15 @@ library("signal")
 library("mnormt")
 library("modeest")
 
-# example included in FRONTIER 4.1 (cross-section data)
-
-data(appleProdFr86)
-attach(appleProdFr86)
-plot(log(vCap/pCap),log(qApples))
-plot(log(vLab/pLab),log(qApples))
-
-# Cobb-Douglas production frontier
-Capital=log(vCap/pCap)
-Labor=log(vLab/pLab)
-cobbDouglas <- sfa( log(qApples)~Capital+ Labor,appleProdFr86)
-summary( cobbDouglas )
-te=efficiencies(cobbDouglas)
 
 
 #example simulation data
 
-#set.seed(2125)
-#nob=100
-#n=nob
-#alpha=c(0.5,-0.8,0.7)
-#sim=sfa.simu(nob=nob,alpha=alpha,sigV=0.5,sigU=1,kink=0.7,family=family,rho=0.8,type=type)
-#data=data.frame(sim$Y,sim$X)
+set.seed(2125)
+nob=100
+alpha=c(0.5,-0.8,0.7)
+sim=sfa.simu(nob=nob,alpha=alpha,sigV=0.5,sigU=1,kink=0.7,family=family,rho=0.8,type=type)
+data=data.frame(sim$Y,sim$X)
 
 # Select familty  copula upper and lower bouubd ( look at CDVine package)
 # family=1   # 1 is Gaussian, 2 is Student-t, 3 is Clayton and so on....
@@ -115,10 +100,6 @@ model
 model0 <- sfa( Y~ X)
 summary( model0 )
 
-LR1=2*(-250.6542--335.5441)
-LR1=2*(-234.9205-)
-
-pchisq(LR1, df=1, lower.tail = FALSE)
 
 ##plot kink -------------
 B=model$result[1:3]
