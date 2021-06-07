@@ -88,18 +88,16 @@ data=data.frame(sim$Y,sim$X)
 
 
 family=1  # normal=1 , Ind=0
-type="kink"  # threshold, kink, linear
-data=data.frame(log(qApples),Capital,Labor)
+type="kink"  # threshold, "kink"", "linear""
 Y=data[,1]
 z=NULL
-X=as.matrix(data[,3])
+X=as.matrix(data[,2])
 plot(X,Y)
 
 model=copkinkSFM(Y=Y,X=X,family=family,z=NULL,RHO=0.5,LB=-0.99,UB=0.99, type=type)
 model
 model0 <- sfa( Y~ X)
 summary( model0 )
-
 
 ##plot kink -------------
 B=model$result[1:3]

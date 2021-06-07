@@ -44,7 +44,7 @@ Worphon Yamaka and Paravee Maneejuk
 \examples{
 ### TE
 theta=model$result[,1]
-tekink=TE1(theta,Y,X,z=NULL,family=family,type=type)
+tekink=TE(theta,Y,X,z=NULL,family=family,type=type)
 tekink=rev(sort(tekink))
 te=rev(sort(te))
 plot(tekink,lty=1,col="white",xlab = 'observation', ylab = 'TE value', main = "Technical Efficiency", ylim=c(0,1))
