@@ -76,7 +76,7 @@ library("modeest")
 set.seed(2125)
 nob=100
 alpha=c(0.5,-0.8,0.7)
-sim=sfa.simu(nob=nob,alpha=alpha,sigV=0.5,sigU=1,kink=0.7,family=family,rho=0.8,type=type)
+sim=sfa.simu(nob=nob,alpha=alpha,sigV=0.5,sigU=1,kink=0.7,family=1,rho=0.8,type="kink")
 data=data.frame(sim$Y,sim$X)
 
 # Select familty  copula upper and lower bouubd ( look at CDVine package)
