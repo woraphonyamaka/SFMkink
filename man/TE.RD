@@ -42,18 +42,15 @@ Worphon Yamaka and Paravee Maneejuk
 %% ~~objects to See Also as \code{\link{help}}, ~~~
 }
 \examples{
+
 ### TE
 theta=model$result[,1]
 tekink=TE(theta,Y,X,z=NULL,family=family,type=type)
 tekink=rev(sort(tekink))
-te=rev(sort(te))
 plot(tekink,lty=1,col="white",xlab = 'observation', ylab = 'TE value', main = "Technical Efficiency", ylim=c(0,1))
 lines(tekink, lty=1,type="l",col="blue",lwd=2)
-lines(te, lty=1,type="l",col="red", lwd=2)
-lines(te, lty=1,type="l",col="black", lwd=2)
-
-legend("topright",merge=FALSE,fill=c("red","blue","black"), col=c("red","blue","black"),
-text.col=c("red","blue","black"),lwd=2,legend=c("Kink","Threshold","Linear"),cex=1, bg='gray90')
+legend("topright",merge=FALSE,fill=c("blue"), col=c("blue"),
+text.col=c("red","blue","black"),lwd=2,legend=c("Kink"),cex=1, bg='gray90')
 }
 % Add one or more standard keywords, see file 'KEYWORDS' in the
 % R documentation directory (show via RShowDoc("KEYWORDS")):
